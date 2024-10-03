@@ -11,7 +11,7 @@ import { User } from './models/User';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'better-sqlite3',
+      type: 'sqlite',
       database: 'dev',
       synchronize: true,
       entities: [User, AuthCode],
