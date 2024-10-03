@@ -15,6 +15,7 @@ import { User } from './models/User';
       database: 'dev',
       synchronize: true,
       entities: [User, AuthCode],
+      autoLoadEntities: true,
     }),
     ConfigModule.forRoot({
       isGlobal: true,
