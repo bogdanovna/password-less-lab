@@ -1,11 +1,18 @@
-import { plainToInstance } from 'class-transformer';
-import { IsString, validateSync } from 'class-validator';
+import { plainToInstance, Transform } from 'class-transformer';
+import { IsInt, IsString, validateSync } from 'class-validator';
 
 export class Config {
   @IsString()
   GOOGLE_CLIENT_ID: string;
   @IsString()
   GOOGLE_CLIENT_SECRET: string;
+
+  @IsString()
+  SMTP_HOST = 'localhost';
+
+  @Transform(({ value }) => +value)
+  @IsInt()
+  SMTP_PORT = 2525;
 }
 
 export function validateConfig(Expected: new () => any) {

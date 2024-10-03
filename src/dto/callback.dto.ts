@@ -1,14 +1,21 @@
 import { Type } from 'class-transformer';
-import { IsEmail, IsOptional, IsUUID, ValidateNested } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  IsUUID,
+  ValidateNested,
+} from 'class-validator';
 
 export class RegisterDto {
-  @IsEmail()
-  email: string;
+  @IsString()
+  @IsNotEmpty()
+  name: string;
 }
 
 export class CallbackDto {
   @IsUUID('all')
-  auth_code: string;
+  code: string;
 
   @Type(() => RegisterDto)
   @IsOptional()
