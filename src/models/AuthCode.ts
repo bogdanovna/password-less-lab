@@ -1,8 +1,13 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity({ name: 'auth_codes' })
 export class AuthCode {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn('uuid')
   code: string;
 
   @Column('text')
